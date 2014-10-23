@@ -1,0 +1,19 @@
+import sqlite3 as lite
+import sys
+try:
+  con = lite.connect('C:/temp/test1.db')
+  cur = con.cursor()
+  #cur.executescript("""drop table if exists tablenamehere;""") if a table exists in the db called tablenamehere this line will delete it
+  #cur.executescript("""create table tablenamehere (id int, name text, lat real, lng real);""") if no table called tablenamehere exists, this line will create one with the following columns; id, name, lat and lng
+  cur.executescript("""insert into tablenamehere values(3, 'boat', 0.111, 0.222);""")
+  cur.executescript("""insert into tablenamehere values(5, 'truck', 1.111, -2.222);""")
+  cur.executescript("""insert into tablenamehere values(9, 'car', 3.333, -3.3333);""")
+  con.commit()
+execpt lite.Error,e:
+  print "error % s:"%e.args[0]
+  sys.exit(1)
+finally:
+  if con:
+    con.close()
+
+  
