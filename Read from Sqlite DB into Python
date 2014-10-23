@@ -3,7 +3,6 @@ import sys
 try:
   con = lite.connect('C:/temp/test1.db') 
   cur = con.cursor()
-  con.commit()
   cur.execute("select * from city;")
   rows = cur.fetchall()
   for row in rows:
