@@ -1,0 +1,16 @@
+import sqlite3 as lite
+import sys
+try:
+  con = lite.connect('C:/temp/test1.db') 
+  cur = con.cursor()
+  con.commit()
+  cur.execute("select * from city;")
+  rows = cur.fetchall()
+  for row in rows:
+    print row
+except lite.Error,e:
+  print "error % s:"%e.args[0]
+  sys.exit(1)
+finally:
+  if con:
+    con.close()
