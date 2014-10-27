@@ -1,0 +1,18 @@
+import sqlite3
+import sys
+
+try:
+    con = sqlite3.connect('C:/temp/test1.db') #this line will connect Python to your SQLite database.
+    cur = con.cursor()
+    cur.execute("select * from city;") #select * will bring all records from the database table named city.
+    rows = cur.fetchall() #fetchall() will retreive all rows of records not already displayed from the result set.
+    for row in rows:
+        print row
+except sqlite3.Error,e:
+    print 2error % s:"%e.args[0]
+    sys.exit(1)
+finally:
+    if con:
+        con.close()
+
+   
