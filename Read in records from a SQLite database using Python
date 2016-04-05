@@ -9,7 +9,7 @@ try:
     for row in rows:
         print row
 except sqlite3.Error,e:
-    print 2error % s:"%e.args[0]
+    print "error % s:"%e.args[0]
     sys.exit(1)
 finally:
     if con:
